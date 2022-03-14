@@ -21,11 +21,12 @@ namespace asteroid.script {
             this.score = null;
             this.physicsService = physicsService;
             this.audioService = audioService;
+            this.bullets = new List<Actor>();
         }
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback) {
             // Grab the score from the cast
-            this.score = (PlayerScore) cast.GetFirstActor("score");
+            this.score = (PlayerScore?) cast.GetFirstActor("score");
 
             // First, get a list of bullets out of the cast
             bullets = cast.GetActors("bullets");
